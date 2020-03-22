@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "github.com/micro/go-micro/api/proto/api.proto";
+
+service Registry {
+    rpc Register (go.api.Request) returns (go.api.Response) {};
+    rpc Deregister (go.api.Request) returns (go.api.Response) {};
+    rpc GetNodes (go.api.Request) returns (go.api.Response) {};
+}
