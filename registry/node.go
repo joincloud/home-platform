@@ -1,8 +1,9 @@
 package registry
 
 type Node struct {
-	Name      string            `json:"name"`
 	Id        string            `json:"id"`
+	Name      string            `json:"name"`
+	NameSpace string            `json:"namespace"`
 	Address   Address           `json:"address"`
 	Version   string            `json:"version"`
 	Metadata  map[string]string `json:"metadata"`
