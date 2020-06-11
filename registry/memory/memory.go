@@ -33,15 +33,31 @@ func (r *Registry) Register(node *registry.Node, opts ...registry.RegisterOption
 }
 
 func (r *Registry) Deregister(node *registry.Node) {
-	panic("implement me")
+	if _, ok := r.nodes[node.Name]; ok {
+		delete(r.nodes, node.Name)
+	}
 }
 
-func (r *Registry) GetNodes(option ...registry.NodeOption) {
-	panic("implement me")
+func (r *Registry) GetNode(name string) (nodes *registry.Node, err error) {
+	for _, node := range r.nodes {
+		if name == node.Name {
+			return node, nil
+		}
+	}
+
+	return nil, fmt.Errorf("there is no node: %s", name)
+}
+
+func (r *Registry) ListNodes(opts ...registry.NodeOption) (nodes []*registry.Node, err error) {
+	for _, node := range r.nodes {
+		nodes = append(nodes, node)
+	}
+
+	return
 }
 
 func (r *Registry) Options() registry.Options {
-	panic("implement me")
+	return r.options
 }
 
 func (r *Registry) Init(opts ...registry.Option) error {

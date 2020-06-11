@@ -2,8 +2,9 @@ package registry
 
 type Registry interface {
 	Register(node *Node, opts ...RegisterOption)
-	Deregister(node *Node)
-	GetNodes(...NodeOption)
+	Deregister(node *Node) error
+	GetNode(...NodeOption) (node Node, err error)
+	ListNodes(...NodeOption) (nodes []*Node, err error)
 	Init(...Option) error
 	Options() Options
 }
