@@ -8,5 +8,5 @@ import (
 
 func main() {
 	handler.Init()
-	http.ListenAndServe(":8090", http.StripPrefix("/sxdemo", nil))
+	http.ListenAndServe(":8090", nil)
 }
