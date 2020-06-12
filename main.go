@@ -1,15 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
+
+	"github.com/joincloud/home-platform/handler"
 )
 
-func hello(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "hello\n")
-}
-
 func main() {
-	http.HandleFunc("/sxdemo/hello", hello)
-	http.ListenAndServe(":8090", nil)
+	handler.Init()
+	http.ListenAndServe(":8090", http.StripPrefix("/sxdemo", nil))
 }
