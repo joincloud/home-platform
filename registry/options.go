@@ -9,6 +9,7 @@ type Options struct {
 }
 
 type NodeOptions struct {
+	Name string `json:"name"`
 }
 
 type RegisterOptions struct {

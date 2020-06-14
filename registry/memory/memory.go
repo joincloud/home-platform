@@ -32,20 +32,27 @@ func (r *Registry) Register(node *registry.Node, opts ...registry.RegisterOption
 	return nil
 }
 
-func (r *Registry) Deregister(node *registry.Node) {
+func (r *Registry) Deregister(node *registry.Node) error {
 	if _, ok := r.nodes[node.Name]; ok {
 		delete(r.nodes, node.Name)
 	}
+
+	return nil
 }
 
-func (r *Registry) GetNode(name string) (nodes *registry.Node, err error) {
+func (r *Registry) GetNode(opts ...registry.NodeOption) (node *registry.Node, err error) {
+	var options registry.NodeOptions
+	for _, o := range opts {
+		o(&options)
+	}
+
 	for _, node := range r.nodes {
-		if name == node.Name {
+		if options.Name == node.Name {
 			return node, nil
 		}
 	}
 
-	return nil, fmt.Errorf("there is no node: %s", name)
+	return nil, fmt.Errorf("there is no node: %s", options.Name)
 }
 
 func (r *Registry) ListNodes(opts ...registry.NodeOption) (nodes []*registry.Node, err error) {
