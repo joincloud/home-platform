@@ -3,3 +3,8 @@
 <div style="float:left">
 <img src="https://github.com/joincloud/docs/blob/master/home-platform/home-platform-arch.png" width="80%">
 </div>
+
+
+## 节点注册
+
+## 节点查询
