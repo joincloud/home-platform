@@ -13,6 +13,7 @@ import (
 
 func main() {
 	registry.DefaultRegistry = &memory.Registry{}
+	registry.DefaultRegistry.Init()
 
 	router := mux.NewRouter()
 	router.HandleFunc("/sxdemo/ping", handler.Ping)
