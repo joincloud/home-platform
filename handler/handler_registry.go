@@ -24,4 +24,6 @@ func RegisterNode(w http.ResponseWriter, req *http.Request) {
 	// , opts ...RegisterOption
 
 	registry.Register(node)
+
+	w.Write([]byte("OK"))
 }

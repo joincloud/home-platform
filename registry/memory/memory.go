@@ -76,6 +76,7 @@ func (r *Registry) Init(opts ...registry.Option) error {
 	defer r.Unlock()
 
 	// todo load nodes from db or file
+	r.nodes = map[string]*registry.Node{}
 
 	return nil
 }
