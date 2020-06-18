@@ -18,6 +18,8 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/sxdemo/ping", handler.Ping)
 	router.HandleFunc("/sxdemo/register", handler.RegisterNode)
+	router.HandleFunc("/sxdemo/nodes", handler.ListNodes)
+
 	http.Handle("/sxdemo", router)
 
 	srv := &http.Server{

@@ -22,3 +22,7 @@ var (
 func Register(node *Node, opts ...RegisterOption) error {
 	return DefaultRegistry.Register(node, opts...)
 }
+
+func ListNodes(opts ...NodeOption) (nodes []*Node, err error) {
+	return DefaultRegistry.ListNodes(opts...)
+}

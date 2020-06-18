@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"github.com/joincloud/home-platform/util"
 	"io/ioutil"
 	"net/http"
 
@@ -25,5 +26,10 @@ func RegisterNode(w http.ResponseWriter, req *http.Request) {
 
 	registry.Register(node)
 
-	w.Write([]byte("OK"))
+	util.RspJsonOK(w, "ok")
+}
+
+func ListNodes(w http.ResponseWriter, req *http.Request) {
+	nodes, _ := registry.ListNodes()
+	util.RspJsonOK(w, nodes)
 }
