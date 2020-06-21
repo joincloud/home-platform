@@ -2,11 +2,11 @@ package handler
 
 import (
 	"encoding/json"
-	"github.com/joincloud/home-platform/util"
 	"io/ioutil"
 	"net/http"
 
-	"github.com/joincloud/home-platform/registry"
+	"github.com/joincloud/home-platform/util"
+	"github.com/joincloud/peers-touch/registry"
 )
 
 func RegisterNode(w http.ResponseWriter, req *http.Request) {

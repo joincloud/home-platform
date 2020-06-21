@@ -7,8 +7,8 @@ import (
 	"github.com/gorilla/mux"
 
 	"github.com/joincloud/home-platform/handler"
-	"github.com/joincloud/home-platform/registry"
-	"github.com/joincloud/home-platform/registry/memory"
+	"github.com/joincloud/peers-touch/registry"
+	"github.com/joincloud/peers-touch/registry/memory"
 )
 
 func main() {
