@@ -19,6 +19,7 @@ func main() {
 	router.HandleFunc("/sxdemo/ping", handler.Ping)
 	router.HandleFunc("/sxdemo/register", handler.RegisterNode)
 	router.HandleFunc("/sxdemo/nodes", handler.ListNodes)
+	router.HandleFunc("/sxdemo/deregister-node", handler.DeregisterNode)
 
 	http.Handle("/sxdemo", router)
 

@@ -29,6 +29,26 @@ func RegisterNode(w http.ResponseWriter, req *http.Request) {
 	util.RspJsonOK(w, "ok")
 }
 
+func DeregisterNode(w http.ResponseWriter, req *http.Request) {
+	body, err := ioutil.ReadAll(req.Body)
+	if err != nil {
+		// todo
+	}
+
+	var node *registry.Node
+
+	err = json.Unmarshal(body, &node)
+	if err != nil {
+		// todo
+	}
+
+	// , opts ...RegisterOption
+
+	registry.Deregister(node)
+
+	util.RspJsonOK(w, "ok")
+}
+
 func ListNodes(w http.ResponseWriter, req *http.Request) {
 	nodes, _ := registry.ListNodes()
 	util.RspJsonOK(w, nodes)
