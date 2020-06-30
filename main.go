@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-
 	"github.com/joincloud/home-platform/handler"
 	"github.com/joincloud/peers-touch/registry"
 	"github.com/joincloud/peers-touch/registry/memory"

@@ -44,7 +44,7 @@ func DeregisterNode(w http.ResponseWriter, req *http.Request) {
 
 	// , opts ...RegisterOption
 
-	registry.Deregister(node)
+	// registry.Deregister(node)
 
 	util.RspJsonOK(w, "ok")
 }
